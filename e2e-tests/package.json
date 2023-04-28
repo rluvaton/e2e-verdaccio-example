@@ -1,0 +1,12 @@
+{
+  "name": "e2e-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.spec.js",
+  "keywords": [],
+  "author": "Raz Luvaton",
+  "license": "ISC",
+  "dependencies": {
+    "verdaccio-example": "latest"
+  }
+}
