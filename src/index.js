@@ -1,9 +1,9 @@
 module.exports = {
-    favoriteQuote() {
-        return 'Perfectly balanced, as all things should be.';
+    function1() {
+        return 1;
     },
 
-    lazyFavoriteAI() {
-        return require('./not-exported').favoriteAI();
+    lazyFunction2() {
+        return require('./not-exported').function2();
     }
 }

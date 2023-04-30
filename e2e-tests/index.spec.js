@@ -29,14 +29,14 @@ afterAll(async () => {
 }, 15000);
 
 test("should succeed", async () => {
-    const {favoriteQuote} = require('verdaccio-example');
+    const {function1} = require('verdaccio-example');
 
-    expect(favoriteQuote()).toBe('Perfectly balanced, as all things should be.');
+    expect(function1()).toEqual(1);
 });
 
 test("should fail", async () => {
     // This would fail as we forgot to add the not-exported.js file to the npm package
-    const {lazyFavoriteAI} = require('verdaccio-example');
+    const {lazyFunction2} = require('verdaccio-example');
 
-    expect(lazyFavoriteAI()).toBe('J.A.R.V.I.S');
+    expect(lazyFunction2()).toEqual(2);
 });
