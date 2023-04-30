@@ -1,13 +1,14 @@
 const path = require("path");
-const {runServer} = require("verdaccio");
+const { runServer } = require("verdaccio");
 const fsExtra = require("fs-extra");
-const {name: packageName} = require("../package.json");
+
+// Make sure it's the right package path
+const { name: packageName } = require("../package.json");
 const os = require("os");
 
 let portNumber;
 let verdaccioInstance;
 let verdaccioDataFolder;
-
 
 async function createUniqueFolder() {
     const testOutputFolder = path.join(os.tmpdir(), "verdaccio-example");
@@ -16,7 +17,7 @@ async function createUniqueFolder() {
         await fsExtra.mkdir(testOutputFolder, {recursive: true});
     }
     return await fsExtra.mkdtemp(`${testOutputFolder}${path.sep}`);
-};
+}
 
 function getNpmEnvironmentVariables(port) {
     return {
@@ -81,9 +82,6 @@ async function setupVerdaccio() {
             level: "fatal",
         },
 
-        // @ts-expect-error (TS2322: [...] 'self_path' does not exist in type 'ConfigYaml'.)
-        // Required otherwise we would get
-        // Error: self_path is required, please provide a valid root path for storage
         self_path: verdaccioDataFolder,
         security: undefined,
     };
